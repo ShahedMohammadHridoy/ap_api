@@ -1,10 +1,11 @@
-//Created By: Shahed Mohammad Hridoy
+//Developed By: Shahed Mohammad Hridoy
 
 <?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$database = "database";
+$servername="servername";
+$username="username";
+$password="password";
+$database="database";
+ 
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);
@@ -14,7 +15,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM companies";
+$sql = "SELECT * FROM companies ORDER BY company";
 
 $result = mysqli_query($conn, $sql) or die("Error in Selection: " . mysqli_error($conn));
 
@@ -25,4 +26,3 @@ print json_encode($myArray);
 
 
 mysqli_close($conn);
-
